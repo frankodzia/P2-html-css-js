@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklep 2P</title>
+</head>
+<body>
+    <label for="kokaina">Kokaina: </label><input type="number" id="kokaina"><br>
+    <label for="mefedron">Mefedron: </label><input type="number" id="mefedron"><br>
+    <label for="amfetamina">Amfetamina: </label><input type="number" id="amfetamina"><br>
+    <button onclick="obliczSrednia()">cena</button>
+    <p id="wynik"></p>
+
+    <script>
+        function obliczSrednia()
+        {
+            let kok = Number(document.getElementById("kokaina").value)
+            let mef = Number(document.getElementById("mefedron").value)
+            let amf = Number(document.getElementById("amfetamina").value)
+
+            let cena = (kok*30 + mef*15 + amf*10)
+
+            document.getElementById("wynik").innerHTML = `<h1> Cena: ${cena}</h1>`
+
+            if(cena >= 50 && cena <= 100)
+            {
+                document.body.style.backgroundColor = "yellow"
+                document.body.style.color = "black"
+            }
+            if(cena > 100)
+            {
+                document.body.style.backgroundColor = "green"
+                document.body.style.color = "white"
+            }
+            
+        }
+    </script>
+</body>
+</html>
