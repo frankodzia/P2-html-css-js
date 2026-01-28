@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklep 2P</title>
+</head>
+<body>
+    <label for="Czekolada">Czekolada</label><input type="number" id="Czekolada"><br>
+    <label for="Chipsy ">Chipsy</label><input type="number" id="Chipsy"><br>
+    <label for="Kola">Kola</label><input type="number" id="Kola"><br>
+    <button onclick="oblicz()">Oblicz cene</button>
+    <p id="cena"></p>
+    
+    <script>
+        function oblicz(){
+            let Czekolada =Number( document.getElementById("Czekolada").value);
+            let Chipsy =Number( document.getElementById("Chipsy").value);
+            let Kola =Number( document.getElementById("Kola").value);
+            let cena = ((Czekolada*30) + (Chipsy * 15) + (Kola * 7));
+
+            if(cena >= 50 && cena >=100){
+                document.body.style.backgroundColor = "green" ;
+                document.body.style.color = "white" ;
+            }if(cena < 100){
+                document.body.style.backgroundColor = "yellow" ;
+                document.body.style.color = "Black" ;
+            }if(cena < 0){
+                alert("ARE U SURE ???? ")
+                console.log("CZY MASZ AUTYZM!? NIE MA UJEMNYCH LICZB")
+                cena = cena * -1
+            }if(cena >=100){
+                cena = cena - (cena * 0.2);
+            }
+
+            
+            document.getElementById("cena").innerHTML = cena + " zł";
+        }
+        </script>
+</body>
+</html>
